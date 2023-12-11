@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-main {
+  background-color: white;
+}
+
+.form-heading,
+.form-btns {
+  background-color: #f9f6f5;
+}
+
+/* IMAGE */
+.image {
+  position: relative;
+  flex-direction: column;
+}
+
+.image {
+  width: max(35%, 400px);
+  height: auto;
+}
+
+.image img {
+  width: 100%;
+  height: inherit;
+}
+
+.credits {
+  position: absolute;
+  bottom: 8px;
+  text-align: center;
+  width: 100%;
+  color: #f9f6f5;
+}
+
+.credits a {
+  color: inherit;
+}
+
+/* FORM */
+.signup-form {
+  font-size: 0.9rem;
+  flex-direction: column;
+  width: max(65%, 600px);
+  height: 100%;
+}
+
+.signup-form > h2:first-of-type {
+  width: max(80%, 100px);
+}
+
+label,
+input {
+  display: block;
+}
+
+label {
+  font-weight: 500;
+}
+
+p {
+  display: inline-block;
+}
+
+.form-heading h2 {
+  margin: 0;
+}
