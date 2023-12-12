@@ -7,6 +7,11 @@ body {
   background-color: var(--color1-);
 }
 
+@font-face {
+  font-family: Norse Bold;
+  src: url("Norse-Bold.otf") format("opentype");
+}
+
 :root {
   --color1-: #f9f7f5;
   --color2: #596d48;
@@ -39,6 +44,29 @@ form {
 
 .credits a {
   color: inherit;
+}
+
+/* LOGO */
+.logo img {
+  width: 100px;
+  height: 130px;
+}
+
+.logo {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 18.5%;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo span {
+  font-size: 5rem;
+  color: var(--color1-);
+  font-family: "Norse Bold", serif;
 }
 
 /* FORM */
@@ -116,4 +144,13 @@ form {
   color: var(--color2);
   text-decoration: none;
   font-weight: 600;
+}
+
+@media screen and (max-width: 650px) {
+  .image {
+    display: none;
+  }
+  .signup-form {
+    width: 100%;
+  }
 }
