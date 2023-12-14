@@ -14,44 +14,24 @@
   </head>
   <body>
     <div class="image">
-      <img src="imgs/img.jpg" alt="image" />
-      <div class="logo">
-        <img src="imgs/logo.png" alt="Odin logo" />
-        <span>ODIN</span>
-      </div>
-      <div class="credits">
-        Photo by
-        <a
-          href="https://unsplash.com/@omidarmin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-          >Omid Armin</a
-        >
-        on
-        <a
-          href="https://unsplash.com/photos/green-leaf-plant-in-close-up-photography-tEkVO3O6ckc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-          >Unsplash</a
-        >
-      </div>
+      <img src="imgs/Meeting.png" alt="image" />
     </div>
     <div class="signup-form">
       <section class="form-heading">
-        <h2>
-          This is not a real online service! You know you need something like
-          this in your life to help you realize your deepest dreams. <br />
-          Sign up <i>now</i> to get started.
-        </h2>
-        <h2>You <i>know</i> you want to.</h2>
+        <h1>Sign Up</h1>
       </section>
       <section class="form-main">
-        <form action="#" method="post" id="odin-form">
+        <form action="page.html" method="post" id="odin-form">
           <h2>Let's do this!</h2>
+          <span class="input-error hidden">*Please fill out all fields</span>
           <div>
             <p>
               <label for="f-name"> FIRST NAME </label>
-              <input type="text" id="f-name" name="first-name" />
+              <input type="text" id="f-name" name="first-name" class="input" />
             </p>
             <p>
               <label for="l-name"> LAST NAME </label>
-              <input type="text" id="l-name" name="last-name" />
+              <input type="text" id="l-name" name="last-name" class="input" />
             </p>
           </div>
           <div>
@@ -62,6 +42,7 @@
                 id="email"
                 name="email"
                 placeholder="example@gmail.com"
+                class="input"
               />
               <span class="email-error hidden"
                 >*Invalid format (example@example.com)</span
@@ -73,9 +54,10 @@
                 type="tel"
                 id="number"
                 name="phone-number"
-                pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+                class="input"
+                pattern="^[0-9]*$"
               />
-              <span class="num-error hidden">*Invalid number format</span>
+              <span class="num-error hidden">*Invalid format</span>
             </p>
           </div>
           <div>
@@ -86,7 +68,7 @@
                 id="password"
                 name="password"
                 required
-                class="error err1"
+                class="error err1 input"
                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
               />
             </p>
@@ -97,7 +79,7 @@
                 id="c-password"
                 name="password"
                 required
-                class="error err2"
+                class="error err2 input"
                 disabled
               />
             </p>

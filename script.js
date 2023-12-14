@@ -4,13 +4,16 @@
 const emailErr = document.querySelector(".email-error");
 const pwdErr = document.querySelector(".pwd-error");
 const confirmPwd = document.querySelector(".confirm");
+const inputErr = document.querySelector(".input-error");
 const numErr = document.querySelector(".num-error");
 
-// SELECTING EMAIL & PASSWORD INPUTS
+// SELECTING INPUTS
 const inputEmail = document.querySelector("#email");
 const inputPwd = document.querySelector("#password");
 const inputConfirm = document.querySelector("#c-password");
-const inputNumber = document.querySelector("#number");
+const inputAll = document.querySelectorAll(".input");
+const btnSubmit = document.querySelector(".btn-create");
+const inputNum = document.querySelector("#number");
 
 // VALIDATING EMAIL
 inputEmail.addEventListener("input", () => {
@@ -34,7 +37,7 @@ inputPwd.addEventListener("focusout", function () {
 });
 
 // CHECKING PASSWORD CONFIRMATION
-inputConfirm.addEventListener("focusout", function () {
+inputConfirm.addEventListener("input", function () {
   if (inputConfirm.value !== inputPwd.value) {
     confirmPwd.classList.remove("hidden");
   } else {
@@ -43,12 +46,21 @@ inputConfirm.addEventListener("focusout", function () {
   }
 });
 
-// VALIDATING PHONE NUMBER
-inputNumber.addEventListener("focusout", function () {
-  if (!inputNumber.checkValidity() || typeof inputNumber.value !== "number") {
+// PHONE NUMBER VALIDATION
+inputNum.addEventListener("focusout", function () {
+  if (!inputNum.checkValidity()) {
     numErr.classList.remove("hidden");
   } else {
     numErr.classList.add("hidden");
-    inputConfirm.style.outline = "1.5px solid var(--color2)";
   }
+});
+
+// MAKING SURE ALL FIELDS ARE FILLED OUT WHEN SUBMITTING FORM
+btnSubmit.addEventListener("click", function (e) {
+  inputAll.forEach((input) => {
+    if (input.value === "") {
+      inputErr.classList.remove("hidden");
+      e.preventDefault();
+    }
+  });
 });
