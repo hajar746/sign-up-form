@@ -1,5 +1,6 @@
 "use strict";
 
+let valid = 0;
 // SELECTING ALL ERROR MESSAGES
 const emailErr = document.querySelector(".email-error");
 const pwdErr = document.querySelector(".pwd-error");
@@ -55,12 +56,22 @@ inputNum.addEventListener("focusout", function () {
   }
 });
 
-// MAKING SURE ALL FIELDS ARE FILLED OUT WHEN SUBMITTING FORM
-btnSubmit.addEventListener("click", function (e) {
-  inputAll.forEach((input) => {
-    if (input.value === "") {
-      inputErr.classList.remove("hidden");
-      e.preventDefault();
-    }
-  });
+const isValid = function () {
+  for (const input of inputAll) {
+    if (input.value !== "") valid++;
+  }
+  return valid;
+};
+
+// MAKING SURE ALL FIELDS ARE FILLED OUT WHEN SUBMITTING FORM AND SHOWING WELCOME PAGE
+const pageMain = document.querySelector(".main");
+const pageWelcome = document.querySelector(".pg-welcome");
+btnSubmit.addEventListener("click", function () {
+  isValid();
+  if (valid > 5) {
+    pageMain.style.display = "none";
+    pageWelcome.classList.remove("hidden");
+  } else {
+    inputErr.classList.remove("hidden");
+  }
 });
