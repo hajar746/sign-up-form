@@ -91,6 +91,10 @@ form {
   border: none;
 }
 
+.error:focus {
+  outline: 1.5px solid black;
+}
+
 /* BUTTON */
 .create {
   padding: 2rem 3rem;

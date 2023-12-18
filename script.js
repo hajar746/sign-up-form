@@ -56,22 +56,20 @@ inputNum.addEventListener("focusout", function () {
   }
 });
 
-const isValid = function () {
-  for (const input of inputAll) {
-    if (input.value !== "") valid++;
-  }
-  return valid;
-};
-
 // MAKING SURE ALL FIELDS ARE FILLED OUT WHEN SUBMITTING FORM AND SHOWING WELCOME PAGE
 const pageMain = document.querySelector(".main");
 const pageWelcome = document.querySelector(".pg-welcome");
-btnSubmit.addEventListener("click", function () {
-  isValid();
-  if (valid > 5) {
-    pageMain.style.display = "none";
-    pageWelcome.classList.remove("hidden");
-  } else {
+btnSubmit.addEventListener("click", function (e) {
+  let valid = 0;
+  inputAll.forEach((input) => {
+    if (input.value !== "") valid++;
+    return valid;
+  });
+  if (valid < 6) {
     inputErr.classList.remove("hidden");
+    e.preventDefault();
+  } else {
+    inputErr.classList.add("hidden");
   }
+  console.log(valid);
 });
